@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,77 +10,94 @@
 
 <body>
 
-    <main class="page">
+    <a class="skip-link" href="#konten">Lewati ke konten utama</a>
+    <header class="site-header">
+        <nav class="nav" aria-label="Navigasi utama">
+            <a class="brand" href="index.html">Kopi Nusa</a>
+            <ul>
+                <li><a aria-current="page" href="index.html">Beranda</a></li>
+                <li><a href="tentang.html">Tentang Kami</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <section class="hero">
+    <main id="konten" class="page">
+
+        <section class="hero" aria-labelledby="hero-title">
             <p class="eyebrow">UMKM Pekalongan</p>
-
-            <h1>Kopi Nusa</h1>
-
-            <p class="hero-desc">
-                Kopi lokal pilihan untuk teman belajar, bekerja, dan berdiskusi.
-            </p>
-
-            <button id="promoButton" type="button">
-                Lihat promo hari ini
-            </button>
+            <h1 id="hero-title">Kopi Nusa</h1>
+            <p>Kopi lokal pilihan untuk teman belajar, bekerja, dan berdiskusi.</p>
+            <button id="promoButton" type="button">Lihat promo hari ini</button>
+            <img src="assets/images/biji kopi.jpg" alt="foto biji kopi" />
         </section>
 
+        <section class="produk-section" aria-labelledby="produk-title">
+            <h2 id="produk-title">Produk Unggulan</h2>
 
-        <section class="produk-section">
-
-            <h2>Produk Unggulan</h2>
-
-            <div class="product-container">
-
-                <div class="product-card">
-                    <h3>Kopi Tubruk Signature</h3>
-
-                    <p class="desc">
-                        Seduhan biji kopi lokal Pekalongan bertaraf pilihan
-                        dengan aroma rempah yang khas dan konsisten.
-                    </p>
-
-                    <div class="price">
-                        Rp18.000
+            <div class="product-list">
+                <article class="product-card">
+                    <img class="product-photo" src="assets/images/kopi_tubruk_signature.jpg"
+                        alt="Secangkir Kopi Tubruk Signature panas dengan uap mengepul" />
+                    <div class="product-body">
+                        <h3>Kopi Tubruk Signature</h3>
+                        <p class="desc">Seduhan biji kopi lokal Pekalongan bertaraf pilihan dengan aroma rempah yang
+                            khas dan konsisten.</p>
+                        <p class="price">Rp18.000</p>
                     </div>
-                </div>
-
-
-                <div class="product-card">
-                    <h3>Cold Brew Aren</h3>
-
-                    <p class="desc">
-                        Ekstraksi dingin selama 12 jam dipadukan manisnya
-                        gula aren murni. Rasanya halus dan tidak terlalu asam.
-                    </p>
-
-                    <div class="price">
-                        Rp20.000
+                </article>
+                <article class="product-card">
+                    <img class="product-photo" src="assets/images/cold_brew_aren.webp"
+                        alt="Segelas Cold Brew Aren dengan es batu dan sedotan" />
+                    <div class="product-body">
+                        <h3>Cold Brew Aren</h3>
+                        <p class="desc">Ekstraksi dingin selama 12 jam dipadukan manisnya gula aren murni. Rasanya
+                            halus dan tidak terlalu asam.</p>
+                        <p class="price">Rp22.000</p>
                     </div>
-                </div>
-
-
-                <div class="product-card">
-                    <h3>Matcha Latte Cream</h3>
-
-                    <p class="desc">
-                        Pilihan non-kopi dari teh hijau Jepang murni yang
-                        dipadukan dengan susu segar yang creamy dan lembut.
-                    </p>
-
-                    <div class="price">
-                        Rp22.000
+                </article>
+                <article class="product-card">
+                    <img class="product-photo" src="assets/images/matcha_latte_cream.jpg"
+                        alt="Secangkir Matcha Latte Cream dengan lapisan krim lembut" />
+                    <div class="product-body">
+                        <h3>Matcha Latte Cream</h3>
+                        <p class="desc">Pilihan non-kopi dari teh hijau Jepang murni yang dipadukan dengan susu segar
+                            yang creamy dan lembut.</p>
+                        <p class="price">Rp22.000</p>
                     </div>
-                </div>
-
+                </article>
             </div>
-
         </section>
+
+        <section id="kontak" class="kontak-section" aria-labelledby="kontak-title">
+            <h2 id="kontak-title">Kunjungi &amp; Hubungi Kami</h2>
+            <div class="kontak-box">
+                <div class="kontak-info">
+                    <p><strong>Alamat:</strong> Jl. Hayam Wuruk No. 12, Pekalongan, Jawa Tengah</p>
+                    <p><strong>Jam layanan:</strong> Setiap hari, 08.00–20.00 WIB</p>
+                </div>
+                <div class="kontak-aksi">
+                    <a class="kontak-link" href="https://wa.me/6281234567890" target="_blank"
+                        rel="noopener noreferrer">Chat pemesanan via WhatsApp</a>
+                </div>
+            </div>
+        </section>
+
+        <aside class="tips-section" aria-labelledby="tips-title">
+            <h2 id="tips-title">Tips Menikmati Kopi Nusa</h2>
+            <ul class="tips-list">
+                <li><strong>Gula Terpisah:</strong> Minta tingkat kemanisan rendah untuk merasakan *aftertaste* rempah alami dari biji kopi Pekalongan.</li>
+                <li><strong>Waktu Terbaik:</strong> Varian <em>Cold Brew Aren</em> paling pas dinikmati di siang hari dalam keadaan dingin segar.</li>
+                <li><strong>Pasangan Sempurna:</strong> Nikmati <em>Kopi Tubruk Signature</em> bersama camilan tradisional khas daerah.</li>
+            </ul>
+        </aside>
 
     </main>
-
+    <footer class="site-footer">
+        <p>&copy; 2026 Kopi Nusa. Data pada halaman ini bersifat dummy.</p>
+    </footer>
     <script src="js/script.js"></script>
 
 </body>
+
 </html>

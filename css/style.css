@@ -11,7 +11,9 @@ body {
     line-height: 1.6;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-family: Georgia, "Times New Roman", serif;
     color: #3a2313;
 }
@@ -406,4 +408,149 @@ button:active {
 
 .tips-list li:last-child {
     margin-bottom: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+figure {
+    margin: 0 0 24px;
+}
+
+figcaption {
+    margin-top: 8px;
+    color: #6b5b52;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+caption {
+    margin-bottom: 8px;
+    font-weight: 700;
+    text-align: left;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #dccbbc;
+}
+
+/* Galeri Produk (produk.html) — pakai Grid & Flexbox */
+
+.product-gallery {
+    margin: 24px 0 32px;
+}
+
+.produk-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.produk-figure {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: #ffffff;
+    border: 1px solid #e2d7cd;
+    border-radius: 12px;
+}
+
+.produk-figure img {
+    display: block;
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.produk-figure figcaption {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 14px 16px 18px;
+    text-align: center;
+}
+
+.produk-figure figcaption strong {
+    color: #4a2613;
+    font-size: 1rem;
+}
+
+.produk-figure figcaption span {
+    color: #66584f;
+    font-size: 0.9rem;
+}
+
+.produk-baru {
+    border: 2px solid #ffd166;
+}
+
+.badge {
+    display: inline-block;
+    margin-left: 6px;
+    padding: 2px 8px;
+    color: #4a2613;
+    background-color: #ffd166;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    vertical-align: middle;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand-logo {
+    display: block;
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+/* Galeri Media (galeri.html) */
+
+.gallery-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.media-card {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: #ffffff;
+    border: 1px solid #e2d7cd;
+    border-radius: 12px;
+}
+
+.media-card img {
+    display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.media-card figcaption {
+    padding: 14px 16px 18px;
+    text-align: center;
+    color: #66584f;
+    font-size: 0.9rem;
+}
+.kontak-aksi {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }

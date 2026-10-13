@@ -30,25 +30,31 @@
     <main id="konten" class="page">
 
         <section class="hero" aria-labelledby="hero-title">
-            <p class="eyebrow">UMKM Pekalongan</p>
-            <h1 id="hero-title">Kopi Nusa</h1>
-            <p>Kopi lokal pilihan untuk teman belajar, bekerja, dan berdiskusi.</p>
-            <button id="promoButton" type="button">Lihat promo hari ini</button>
-            <img src="assets/images/biji_kopi_nw.webp" alt="foto biji kopi" />
+            <div class="hero-content">
+                <p class="eyebrow">UMKM Pekalongan</p>
+                <h1 id="hero-title">Kopi Nusa</h1>
+                <p>Kopi lokal pilihan untuk teman belajar, bekerja, dan berdiskusi.</p>
+                <button id="promoButton" type="button">Lihat promo hari ini</button>
+            </div>
+            <img class="hero-image" src="assets/images/biji_kopi_nw.webp" alt="foto biji kopi" />
         </section>
 
         <section class="produk-section" aria-labelledby="produk-title">
             <h2 id="produk-title">Produk Unggulan</h2>
 
-            <div class="product-list">
+            <div class="product-grid">
                 <figure class="product-card">
                     <img class="product-photo" src="assets/images/kopi_tubruk_signature_nw.webp"
                         alt="Segelas Kopi Tubruk Signature panas dengan uap mengepul" />
                     <figcaption class="product-body">
                         <h3>Kopi Tubruk Signature</h3>
-                        <p class="desc">Seduhan biji kopi lokal Pekalongan berkualitas pilihan dengan aroma rempah yang
-                            khas dan konsisten.</p>
+                        <p class="desc">Seduhan biji kopi lokal Pekalongan berkualitas pilihan dengan aroma rempah yang khas dan konsisten.</p>
                         <p class="price">Rp18.000</p>
+                        <div class="card-actions">
+                            <a class="card-link" href="produk.html" aria-label="Lihat detail Kopi Tubruk Signature">Lihat detail</a>
+                            <a class="card-link card-link-secondary" href="https://wa.me/6281234567890"
+                                target="_blank" rel="noopener noreferrer" aria-label="Pesan Kopi Tubruk Signature via WhatsApp">Pesan</a>
+                        </div>
                     </figcaption>
                 </figure>
                 <figure class="product-card">
@@ -56,9 +62,13 @@
                         alt="Segelas Cold Brew Aren dengan es batu" />
                     <figcaption class="product-body">
                         <h3>Cold Brew Aren</h3>
-                        <p class="desc">Ekstraksi dingin selama 12 jam dipadukan manisnya gula aren murni. Rasanya
-                            halus dan tidak terlalu asam.</p>
+                        <p class="desc">Ekstraksi dingin selama 12 jam dipadukan manisnya gula aren murni. Rasanya halus dan tidak terlalu asam.</p>
                         <p class="price">Rp22.000</p>
+                        <div class="card-actions">
+                            <a class="card-link" href="produk.html" aria-label="Lihat detail Cold Brew Aren">Lihat detail</a>
+                            <a class="card-link card-link-secondary" href="https://wa.me/6281234567890"
+                                target="_blank" rel="noopener noreferrer" aria-label="Pesan Cold Brew Aren via WhatsApp">Pesan</a>
+                        </div>
                     </figcaption>
                 </figure>
                 <figure class="product-card">
@@ -66,19 +76,27 @@
                         alt="Segelas Matcha Latte Cream dengan lapisan krim lembut" />
                     <figcaption class="product-body">
                         <h3>Matcha Latte Cream</h3>
-                        <p class="desc">Pilihan non-kopi dari teh hijau Jepang murni yang dipadukan dengan susu segar
-                            yang creamy dan lembut.</p>
+                        <p class="desc">Pilihan non-kopi dari teh hijau Jepang murni yang dipadukan dengan susu segar yang creamy dan lembut.</p>
                         <p class="price">Rp22.000</p>
+                        <div class="card-actions">
+                            <a class="card-link" href="produk.html" aria-label="Lihat detail Matcha Latte Cream">Lihat detail</a>
+                            <a class="card-link card-link-secondary" href="https://wa.me/6281234567890"
+                                target="_blank" rel="noopener noreferrer" aria-label="Pesan Matcha Latte Cream via WhatsApp">Pesan</a>
+                        </div>
                     </figcaption>
                 </figure>
-                <figure class="product-card">
+                <figure class="product-card product-card-new">
                     <img class="product-photo" src="assets/images/es_kopi_palm_sugar_nw.webp"
                         alt="Segelas Es Kopi Palm Sugar dengan gradasi gula aren dan es batu" />
                     <figcaption class="product-body">
-                        <h3>Es Kopi Palm Sugar <span class="badge">Baru</span></h3>
-                        <p class="desc">Kopi susu dingin dengan gula aren asli yang manis alami, disajikan segar dengan
-                            es batu untuk menemani hari yang panas.</p>
+                        <h3>Es Kopi Palm Sugar <span class="product-badge">Baru</span></h3>
+                        <p class="desc">Kopi susu dingin dengan gula aren asli yang manis alami, disajikan segar dengan es batu untuk menemani hari yang panas.</p>
                         <p class="price">Rp24.000</p>
+                        <div class="card-actions">
+                            <a class="card-link" href="produk.html" aria-label="Lihat detail Es Kopi Palm Sugar">Lihat detail</a>
+                            <a class="card-link card-link-secondary" href="https://wa.me/6281234567890"
+                                target="_blank" rel="noopener noreferrer" aria-label="Pesan Es Kopi Palm Sugar via WhatsApp">Pesan</a>
+                        </div>
                     </figcaption>
                 </figure>
             </div>
@@ -103,7 +121,7 @@
         <aside class="tips-section" aria-labelledby="tips-title">
             <h2 id="tips-title">Tips Menikmati Kopi Nusa</h2>
             <ul class="tips-list">
-                <li><strong>Gula Terpisah:</strong> Minta tingkat kemanisan rendah untuk merasakan *aftertaste* rempah
+                <li><strong>Gula Terpisah:</strong> Minta tingkat kemanisan rendah untuk merasakan <em>aftertaste</em> rempah
                     alami dari biji kopi Pekalongan.</li>
                 <li><strong>Waktu Terbaik:</strong> Varian <em>Cold Brew Aren</em> paling pas dinikmati di siang hari
                     dalam keadaan dingin segar.</li>

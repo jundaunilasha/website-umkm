@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Produk Kopi Nusa - Website UMKM</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="assets/images/logo_kopi_nusa_nw.webp" type="image/webp" />
 </head>
 
 <body>
@@ -13,7 +14,7 @@
     <header class="site-header">
         <nav class="nav" aria-label="Navigasi utama">
             <a class="brand" href="index.html">
-                <img class="brand-logo" src="assets/images/logo_kopi_nusa_nw.webp" alt="Logo Kopi Nusa" />
+                <img class="brand-logo" src="assets/images/logo_kopi_nusa_nw.webp" width="72" height="72" alt="Logo Kopi Nusa" />
                 Kopi Nusa
             </a>
             <ul>
@@ -43,70 +44,51 @@
 
             <div class="product-grid">
                 <figure class="product-card">
-                    <img src="assets/images/kopi_tubruk_signature_nw.webp"
+                    <img src="assets/images/kopi_tubruk_signature_nw.webp" width="800" height="600" loading="lazy"
                         alt="Segelas Kopi Tubruk Signature panas dengan uap mengepul" />
-                    <figcaption class="product-body">Kopi Tubruk Signature — seduhan biji kopi lokal Pekalongan dengan aroma
-                        rempah yang khas dan konsisten, disajikan dalam gelas 250 ml seharga Rp18.000.</figcaption>
+                    <figcaption class="product-body">Kopi Tubruk Signature — seduhan biji kopi lokal Pekalongan dengan aroma rempah yang khas dan konsisten, disajikan dalam gelas 250 ml seharga Rp18.000.</figcaption>
                 </figure>
 
                 <figure class="product-card">
-                    <img src="assets/images/cold_brew_aren_nw.webp" alt="Segelas Cold Brew Aren dengan es batu" />
-                    <figcaption class="product-body">Cold Brew Aren — ekstraksi dingin selama 12 jam dipadukan manisnya gula aren
-                        murni, rasa halus dan tidak terlalu asam, disajikan dalam gelas 250 ml seharga
-                        Rp22.000.</figcaption>
+                    <img src="assets/images/cold_brew_aren_nw.webp" width="800" height="600" loading="lazy"
+                        alt="Segelas Cold Brew Aren dengan es batu" />
+                    <figcaption class="product-body">Cold Brew Aren — ekstraksi dingin selama 12 jam dipadukan manisnya gula aren murni, rasa halus dan tidak terlalu asam, disajikan dalam gelas 250 ml seharga Rp22.000.</figcaption>
                 </figure>
 
                 <figure class="product-card">
-                    <img src="assets/images/matcha_latte_cream_nw.webp"
+                    <img src="assets/images/matcha_latte_cream_nw.webp" width="800" height="600" loading="lazy"
                         alt="Segelas Matcha Latte Cream dengan lapisan krim lembut" />
-                    <figcaption class="product-body">Matcha Latte Cream — teh hijau Jepang murni dipadukan susu segar yang creamy
-                        dan lembut, disajikan dalam gelas 250 ml seharga Rp22.000.</figcaption>
+                    <figcaption class="product-body">Matcha Latte Cream — teh hijau Jepang murni dipadukan susu segar yang creamy dan lembut, disajikan dalam gelas 250 ml seharga Rp22.000.</figcaption>
                 </figure>
 
                 <figure class="product-card product-card-new">
-                    <img src="assets/images/es_kopi_palm_sugar_nw.webp"
+                    <img src="assets/images/es_kopi_palm_sugar_nw.webp" width="800" height="600" loading="lazy"
                         alt="Segelas Es Kopi Palm Sugar dengan gradasi gula aren dan es batu" />
-                    <figcaption class="product-body"><span class="product-badge">Baru</span> Es Kopi Palm Sugar — kopi susu dingin dengan
-                        gula aren asli yang manis alami, segar untuk hari yang panas, disajikan dalam gelas 250
-                        ml seharga Rp24.000.</figcaption>
+                    <figcaption class="product-body"><span class="product-badge">Baru</span> Es Kopi Palm Sugar — kopi susu dingin dengan gula aren asli yang manis alami, segar untuk hari yang panas, disajikan dalam gelas 250 ml seharga Rp24.000.</figcaption>
                 </figure>
             </div>
         </section>
 
         <section aria-labelledby="harga-title">
             <h2 id="harga-title">Daftar Harga</h2>
-            <table>
-                <caption>Daftar harga produk Kopi Nusa</caption>
-                <thead>
-                    <tr>
-                        <th scope="col">Produk</th>
-                        <th scope="col">Ukuran</th>
-                        <th scope="col">Harga</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">Kopi Tubruk Signature</th>
-                        <td>Gelas 250 ml</td>
-                        <td>Rp18.000</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Cold Brew Aren</th>
-                        <td>Gelas 250 ml</td>
-                        <td>Rp22.000</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Matcha Latte Cream</th>
-                        <td>Gelas 250 ml</td>
-                        <td>Rp22.000</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Es Kopi Palm Sugar</th>
-                        <td>Gelas 250 ml</td>
-                        <td>Rp24.000</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-scroll" role="region" aria-labelledby="daftar-harga-caption" tabindex="0">
+                <table>
+                    <caption id="daftar-harga-caption">Daftar harga produk Kopi Nusa</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Produk</th>
+                            <th scope="col">Ukuran</th>
+                            <th scope="col">Harga</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><th scope="row">Kopi Tubruk Signature</th><td>Gelas 250 ml</td><td>Rp18.000</td></tr>
+                        <tr><th scope="row">Cold Brew Aren</th><td>Gelas 250 ml</td><td>Rp22.000</td></tr>
+                        <tr><th scope="row">Matcha Latte Cream</th><td>Gelas 250 ml</td><td>Rp22.000</td></tr>
+                        <tr><th scope="row">Es Kopi Palm Sugar</th><td>Gelas 250 ml</td><td>Rp24.000</td></tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
     </main>
     <footer class="site-footer">

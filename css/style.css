@@ -28,15 +28,14 @@
     --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     --font-heading: Georgia, "Times New Roman", serif;
 
-    /* Token fluida (P07): batas minimum dan maksimum aman */
-    --page-max: 57.5rem;                                   /* 920px */
-    --page-gutter: clamp(1rem, 4vw, 1.5rem);               /* 16px -> 24px */
-    --space-section: clamp(1.5rem, 1rem + 3vw, 3rem);      /* 24px -> 48px */
-    --space-hero: clamp(1.25rem, 0.5rem + 4vw, 2rem);      /* 20px -> 32px */
-    --space-card: clamp(0.75rem, 2vw, 1.25rem);            /* 12px -> 20px */
-    --fs-h1: clamp(1.75rem, 1.25rem + 2.5vw, 2.5rem);      /* 28px -> 40px */
-    --fs-h2: clamp(1.375rem, 1.1rem + 1.5vw, 1.875rem);    /* 22px -> 30px */
-    --touch-min: 2.75rem;                                  /* 44px */
+    --page-max: 57.5rem;                                   
+    --page-gutter: clamp(1rem, 4vw, 1.5rem);               
+    --space-section: clamp(1.5rem, 1rem + 3vw, 3rem);      
+    --space-hero: clamp(1.25rem, 0.5rem + 4vw, 2rem);      
+    --space-card: clamp(0.75rem, 2vw, 1.25rem);            
+    --fs-h1: clamp(1.75rem, 1.25rem + 2.5vw, 2.5rem);      
+    --fs-h2: clamp(1.375rem, 1.1rem + 1.5vw, 1.875rem);    
+    --touch-min: 2.75rem;                                  
 }
 
 *,
@@ -163,9 +162,11 @@ textarea:focus-visible {
 
 .nav {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-3);
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-1) var(--space-3);
     width: min(100%, calc(var(--page-max) - 2 * var(--page-gutter)));
     margin-inline: auto;
 }
@@ -211,6 +212,67 @@ textarea:focus-visible {
     background: var(--color-primary);
     font-weight: 800;
     text-decoration: none;
+}
+
+.nav .nav-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: var(--touch-min);
+    height: var(--touch-min);
+    padding: 0;
+    color: var(--color-primary-strong);
+    background: var(--color-surface);
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius-sm);
+}
+
+.nav .nav-toggle:hover {
+    color: var(--color-surface);
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.nav-toggle-icon,
+.nav-toggle-icon::before,
+.nav-toggle-icon::after {
+    display: block;
+    width: 1.25rem;
+    height: 2px;
+    background: currentcolor;
+    border-radius: var(--radius-pill);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.nav-toggle-icon {
+    position: relative;
+}
+
+.nav-toggle-icon::before,
+.nav-toggle-icon::after {
+    position: absolute;
+    left: 0;
+    content: "";
+}
+
+.nav-toggle-icon::before {
+    top: -0.4rem;
+}
+
+.nav-toggle-icon::after {
+    top: 0.4rem;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-icon {
+    background: transparent;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-icon::before {
+    transform: translateY(0.4rem) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-icon::after {
+    transform: translateY(-0.4rem) rotate(-45deg);
 }
 
 button,
@@ -584,6 +646,38 @@ input[type="radio"] {
     background: var(--color-text);
 }
 
+@media (max-width: 59.9375rem) {
+    .js .nav .nav-toggle {
+        display: inline-flex;
+    }
+
+    .js .nav ul {
+        display: none;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: stretch;
+        flex-basis: 100%;
+        padding-top: var(--space-1);
+        border-top: 1px solid var(--color-border);
+    }
+
+    .js .nav ul.is-open {
+        display: flex;
+    }
+
+    .js .nav li a {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .nav-toggle-icon,
+    .nav-toggle-icon::before,
+    .nav-toggle-icon::after {
+        transition: none;
+    }
+}
+
 @media (min-width: 42rem) {
     .gallery-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -601,12 +695,6 @@ input[type="radio"] {
 }
 
 @media (min-width: 60rem) {
-    .nav {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-    }
-
     .product-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }

@@ -1,87 +1,145 @@
 "use strict";
-console.log("P09 JavaScript aktif");
+console.log("P10 JavaScript aktif");
 
 const produkUmkm = [
-    { nama: "Kopi Tubruk Signature", kategori: "Kopi", harga: 18000, stok: 24, isUnggulan: true, diskonPersen: 0, deskripsi: "Biji kopi lokal Pekalongan, aroma rempah khas." },
-    { nama: "Cold Brew Aren", kategori: "Kopi", harga: 22000, stok: 4, isUnggulan: true, diskonPersen: 10, deskripsi: "Ekstraksi dingin 12 jam dengan gula aren." },
-    { nama: "Matcha Latte Cream", kategori: "Non-Kopi", harga: 22000, stok: 0, isUnggulan: false, diskonPersen: 0, deskripsi: "Teh hijau Jepang dengan susu segar creamy." },
-    { nama: "Es Kopi Palm Sugar", kategori: "Kopi", harga: 24000, stok: 15, isUnggulan: false, diskonPersen: 15, deskripsi: "Kopi susu dingin dengan gula aren asli." },
+    {
+        id: 1,
+        nama: "Kopi Tubruk Signature",
+        kategori: "Kopi",
+        harga: 18000,
+        stok: 24,
+        isUnggulan: true,
+        gambar: "assets/images/kopi_tubruk_signature_nw.webp",
+        deskripsi: "Biji kopi lokal Pekalongan, aroma rempah khas.",
+    },
+    {
+        id: 2,
+        nama: "Cold Brew Aren",
+        kategori: "Kopi",
+        harga: 22000,
+        stok: 4,
+        isUnggulan: false,
+        gambar: "assets/images/cold_brew_aren_nw.webp",
+        deskripsi: "Ekstraksi dingin 12 jam dengan gula aren.",
+    },
+    {
+        id: 3,
+        nama: "Matcha Latte Cream",
+        kategori: "Non-Kopi",
+        harga: 22000,
+        stok: 0,
+        isUnggulan: false,
+        gambar: "assets/images/matcha_latte_cream_nw.webp",
+        deskripsi: "Teh hijau Jepang dengan susu segar creamy.",
+    },
+    {
+        id: 4,
+        nama: "Es Kopi Palm Sugar",
+        kategori: "Kopi",
+        harga: 24000,
+        stok: 15,
+        isUnggulan: false,
+        gambar: "assets/images/es_kopi_palm_sugar_nw.webp",
+        deskripsi: "Kopi susu dingin dengan gula aren asli.",
+    },
 ];
 
-const formatRupiah = new Intl.NumberFormat("id-ID", {
-    style: "currency",
-    currency: "IDR",
-    maximumFractionDigits: 0,
-});
-
-function hitungHargaAkhir(harga, diskonPersen = 0) {
-    const hargaAman = Number(harga);
-    let diskon = Number(diskonPersen);
-
-    if (!Number.isFinite(hargaAman) || hargaAman < 0) {
-        return 0;
+function formatRupiah(nilai) {
+    const angka = Number(nilai);
+    if (!Number.isFinite(angka)) {
+        return "Rp 0";
     }
-    if (!Number.isFinite(diskon)) {
-        diskon = 0;
-    }
-    diskon = Math.min(Math.max(diskon, 0), 100);
 
-    return Math.round((hargaAman * (100 - diskon)) / 100);
+    return new Intl.NumberFormat("id-ID", {
+        style: "currency",
+        currency: "IDR",
+        maximumFractionDigits: 0,
+    })
+        .format(angka)
+        .replace(/\u00a0/g, " ");
 }
 
 function statusStok(stok) {
-    if (stok === 0) {
-        return { label: "Habis", className: "empty" };
-    } else if (stok <= 5) {
-        return { label: "Terbatas", className: "warning" };
+    if (stok <= 0) {
+        return { label: "Habis", class: "stock-badge empty" };
     }
-    return { label: "Tersedia", className: "" };
+    if (stok <= 5) {
+        return { label: "Stok terbatas", class: "stock-badge warning" };
+    }
+    return { label: "Tersedia", class: "stock-badge" };
+}
+
+function buatKartuProduk(produk) {
+    const status = statusStok(produk.stok);
+    const badgeUnggulan = produk.isUnggulan
+        ? `<span class="badge-unggulan">Unggulan</span>`
+        : "";
+
+    return `
+      <article class="js-product-card" data-id="${produk.id}">
+        ${badgeUnggulan}
+        <h3>${produk.nama}</h3>
+        <p>${produk.kategori} &middot; ${produk.deskripsi}</p>
+        <p class="price">${formatRupiah(produk.harga)}</p>
+        <span class="${status.class}">${status.label}</span>
+        <p>Sisa stok: ${produk.stok}</p>
+      </article>`;
+}
+
+function hitungStatistik(daftarProduk) {
+    let totalNilaiStok = 0;
+    let jumlahTerbatas = 0;
+
+    for (const produk of daftarProduk) {
+        totalNilaiStok += produk.harga * produk.stok;
+        if (statusStok(produk.stok).label === "Stok terbatas") {
+            jumlahTerbatas += 1;
+        }
+    }
+    return { totalNilaiStok, jumlahTerbatas };
 }
 
 function renderProduk() {
     const grid = document.querySelector("#produk-dinamis");
     const ringkasan = document.querySelector("#produk-ringkasan");
+    const unggulan = document.querySelector("#produk-unggulan");
 
-    if (!grid || !ringkasan) {
+    if (!grid || !ringkasan || !unggulan) {
+        console.warn("renderProduk dilewati: kontainer render tidak ada di halaman ini.");
         return;
     }
+
+    console.log("[1] Jumlah data awal:", produkUmkm.length);
     console.table(produkUmkm);
 
-    let jumlahTersedia = 0; 
-    let markup = "";        
+    const produkTersedia = produkUmkm.filter((produk) => produk.stok > 0);
+    console.log("[2] Hasil filter (tersedia):", produkTersedia.length, "dari", produkUmkm.length);
+    console.table(produkTersedia.map(({ id, nama, stok }) => ({ id, nama, stok })));
 
-    for (const produk of produkUmkm) {
-        const status = statusStok(produk.stok);
-        const hargaAkhir = hitungHargaAkhir(produk.harga, produk.diskonPersen);
-        const adaDiskon = hargaAkhir < produk.harga;
+    const daftarKartu = produkTersedia.map(buatKartuProduk);
+    console.log("[3] Jumlah kartu HTML hasil map:", daftarKartu.length);
 
-        if (produk.stok > 0) {
-            jumlahTersedia++;
-        }
+    const produkUnggulan = produkUmkm.find((produk) => produk.isUnggulan === true);
+    console.log("[4] Hasil find (unggulan):", produkUnggulan);
 
-        const badgeUnggulan = produk.isUnggulan
-            ? `<span class="badge-unggulan">Unggulan</span>`
-            : "";
+    grid.innerHTML = "";
+    daftarKartu.forEach((kartu, index) => {
+        grid.insertAdjacentHTML("beforeend", kartu);
+        console.log(`[5] Kartu #${index + 1} dirender:`, produkTersedia[index].nama);
+    });
 
-        const hargaMarkup = adaDiskon
-            ? `<p class="price"><s class="price-normal">${formatRupiah.format(produk.harga)}</s>
-         <span class="price-promo">${formatRupiah.format(hargaAkhir)}</span>
-         <span class="diskon-label">-${produk.diskonPersen}%</span></p>`
-            : `<p class="price">${formatRupiah.format(produk.harga)}</p>`;
+    const statistik = hitungStatistik(produkUmkm);
+    console.log("[6] Statistik:", statistik);
 
-        markup += `
-      <article class="js-product-card">
-        ${badgeUnggulan}
-        <h3>${produk.nama}</h3>
-        <p>${produk.kategori} &middot; ${produk.deskripsi}</p>
-        ${hargaMarkup}
-        <span class="stock-badge ${status.className}">${status.label}</span>
-        <p>${produk.stok > 0 ? "Siap dipesan" : "Hubungi admin"}</p>
-      </article>`;
+    ringkasan.textContent =
+        `${produkTersedia.length} produk tersedia dari ${produkUmkm.length} data. ` +
+        `Total nilai stok: ${formatRupiah(statistik.totalNilaiStok)}.`;
+
+    if (produkUnggulan) {
+        unggulan.textContent = `Produk unggulan: ${produkUnggulan.nama}`;
+    } else {
+        unggulan.textContent = "Belum ada produk unggulan.";
     }
-
-    grid.innerHTML = markup;
-    ringkasan.textContent = `${jumlahTersedia} produk tersedia dari ${produkUmkm.length} data.`;
 }
 
 document.addEventListener("DOMContentLoaded", renderProduk);

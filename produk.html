@@ -83,15 +83,25 @@
             </div>
         </section>
 
-        <section class="section" aria-labelledby="produk-dinamis-title">
-            <div class="section-header">
-                <p class="eyebrow">Data JavaScript</p>
-                <h2 id="produk-dinamis-title">Stok Produk Kami</h2>
-                <p id="produk-ringkasan">Data produk akan dimuat melalui JavaScript.</p>
-                <!-- Elemen id="produk-unggulan" ditambahkan agar script JS tidak menghentikan eksekusi (guard) -->
-                <p id="produk-unggulan">Produk unggulan akan ditentukan melalui JavaScript.</p>
+        <section class="product-section" aria-labelledby="produk-title">
+            <div class="section-heading">
+                <p class="eyebrow">Katalog</p>
+                <h2 id="produk-title">Produk Unggulan UMKM</h2>
+                <p id="produk-status" class="produk-status" aria-live="polite">Produk belum dimuat.</p>
             </div>
-            <div id="produk-dinamis" class="js-product-grid"></div>
+
+            <div class="filter-bar" role="group" aria-label="Filter kategori produk">
+                <button type="button" class="filter-button is-active" data-filter="Semua"
+                    aria-pressed="true">Semua</button>
+                <button type="button" class="filter-button" data-filter="Kopi" aria-pressed="false">Kopi</button>
+                <button type="button" class="filter-button" data-filter="Non-Kopi"
+                    aria-pressed="false">Non-Kopi</button>
+                <button type="button" class="filter-button" data-filter="Bundling"
+                    aria-pressed="false">Bundling</button>
+                <button type="button" class="filter-button" data-filter="Makanan" aria-pressed="false">Makanan</button>
+            </div>
+
+            <div id="produk-grid" class="product-grid"></div>
         </section>
 
         <section aria-labelledby="harga-title">
